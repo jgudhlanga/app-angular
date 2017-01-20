@@ -1,0 +1,36 @@
+<div class="col-md-12">
+    <h1>Project List</h1>
+    <div class="alert alert-danger" ng-show="error"> {{ error }}</div>
+    <div class="table-responsive col-md-12">
+        <table class="table table-striped">
+            <thead>
+               <tr>
+                   <th></th>
+                   <th>Title</th>
+                   <th>Description</th>
+                   <th>Start Date</th>
+                   <th>End Date</th>
+                   <th>Is Billable</th>
+                   <th>Is Active</th>
+               </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="project in projects">
+                    <td></td>
+                    <td>{{ project.title }}</td>
+                    <td>{{ project.description }}</td>
+                    <td>{{ project.start_date }}</td>
+                    <td>{{ project.end_date }}</td>
+                    <td class="text-center">
+                        <i class="glyphicon glyphicon-check text-success" ng-show="project.is_billable"></i>
+                        <i class="glyphicon glyphicon-ban-circle text-danger" ng-show="!project.is_billable"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="glyphicon glyphicon-check text-success" ng-show="project.is_active"></i>
+                        <i class="glyphicon glyphicon-ban-circle text-danger" ng-show="!project.is_active"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

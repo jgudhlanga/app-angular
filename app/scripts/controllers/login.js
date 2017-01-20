@@ -23,7 +23,7 @@ angular.module('angularappApp')
             var objToken = response.data;
             $cookieStore.put('token',objToken.token);
           //  console.log($cookieStore.get('token'));
-            $scope.token = $cookieStore.get('token');
+           // $scope.token = $cookieStore.get('token');
         }
 
         $scope.getToken = function()
