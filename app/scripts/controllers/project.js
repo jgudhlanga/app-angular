@@ -26,4 +26,26 @@ angular.module('angularappApp')
         }
         $http.get("http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/", dataConfig).then(OnRequestComplete, onError);
 
+        //Save a project here
+        //initialise the post data object
+        $scope.projectData = {
+
+        };
+        var onComplete = function (response) {
+            $scope.results = response.data;
+        }
+
+        $scope.postProject = function()
+        {
+            $http({
+                    method: 'POST',
+                    url: "http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/",
+                    data: $scope.projectData
+                ,
+                headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Token ' + $cookieStore.get('token')
+                }
+            }).then(onComplete, onError);
+        }
     });

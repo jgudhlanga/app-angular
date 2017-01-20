@@ -35,6 +35,11 @@ angular.module('angularappApp', [
         controller: 'ProjectCtrl',
         controllerAs: 'project'
       })
+      .when('/addproject', {
+        templateUrl: 'views/addproject.html',
+        controller: 'AddProjectCtrl',
+        controllerAs: 'addproject'
+      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
