@@ -7,7 +7,7 @@
  * Controller of the angularappApp
  */
 angular.module('angularappApp')
-    .controller('ProjectCtrl', function ($scope, $http, $cookieStore )  {
+    .controller('ProjectCtrl', function ($scope, $http, $cookieStore, $location )  {
 
         $scope.token = $cookieStore.get('token');
         var onError = function(reason)
@@ -32,7 +32,7 @@ angular.module('angularappApp')
 
         };
         var onComplete = function (response) {
-            $scope.results = response.data;
+            $scope.projects += response.data;
         }
 
         $scope.postProject = function()
@@ -42,6 +42,20 @@ angular.module('angularappApp')
                     url: "http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/",
                     data: $scope.projectData
                 ,
+                headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Token ' + $cookieStore.get('token')
+                }
+            }).then(onComplete, onError);
+            //redirect to the projects page
+            $location.path("#/project");
+        }
+
+        $scope.deleteProject = function()
+        {
+            $http({
+                method: 'DELETE',
+                url: 'http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/' + $scope.pk,
                 headers: {
                     'content-type': 'application/json',
                     'Authorization': 'Token ' + $cookieStore.get('token')
