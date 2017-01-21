@@ -43,10 +43,10 @@
                         <i class="glyphicon glyphicon-ban-circle text-danger" ng-show="!project.is_active"></i>
                     </td>
                     <td>
-                        <button class="btn btn-success btn-xs">
-                            <i class="glyphicon glyphicon-pencil" ng-click="#/editproject"></i>
+                        <a class="btn btn-success btn-xs" href="#/editproject/{{project.pk}}">
+                            <i class="glyphicon glyphicon-pencil"></i>
                             Edit
-                        </button>
+                        </a>
                     <td>
                         <button class="btn btn-danger btn-xs" ng-click="deleteProject(project.pk)">
                             <i class="glyphicon glyphicon-trash"></i>
