@@ -20,17 +20,17 @@ angular.module('angularappApp', [
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/project', {
-        templateUrl: 'views/project.html',
-        controller: 'ProjectCtrl',
-        controllerAs: 'project'
-      })
-        .when('/editproject/:pk', {
+        .when('/project', {
+            templateUrl: 'views/project.html',
+            controller: 'ProjectCtrl',
+            controllerAs: 'project'
+        })
+        .when('/editproject', {
             templateUrl: 'views/editproject.html',
             controller: 'ProjectCtrl',
             controllerAs: 'editproject'
         })
-        .when('/', {
+        .when('/main', {
             templateUrl: 'views/main.html',
             controller: 'MainCtrl',
             controllerAs: 'main'
