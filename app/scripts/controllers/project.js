@@ -50,16 +50,18 @@ angular.module('angularappApp')
 
         $scope.deleteProject = function(pk)
         {
-            $http.delete('http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/'+pk+'/');
-            /*$http({
+            //$http.delete('http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/'+pk+'/');
+           /$http({
                 method: 'DELETE',
-                url: 'http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/' + pk,
+                url: 'http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/' + pk +'/',
                 headers: {
                     'content-type': 'application/json',
                     'Authorization': 'Token ' + $cookieStore.get('token')
                 }
-            }).then(onComplete, onError);
-            conslole.log('http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/' + pk);*/
+            }).then(
+                function(response){
+                    $scope.message = response.data;
+                }, onError);
             //redirect to the projects page
             $location.path("#/project");
         }
