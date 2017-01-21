@@ -14,7 +14,6 @@
 
         var logout = function()
         {
-            console.log($cookies.get('token'))
            return  $cookies.remove('token');
         }
         return {
