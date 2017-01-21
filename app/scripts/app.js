@@ -41,6 +41,6 @@ angular.module('angularappApp', [
         controllerAs: 'login'
       })
       .otherwise({
-        redirectTo: 'project'
+        redirectTo: '/project'
       });
   });

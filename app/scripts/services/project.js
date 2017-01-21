@@ -2,11 +2,11 @@
 (function() {
     //define the service i.e the service name
     //the service depends http service which is inbuilt in angular
-    var project = function($http, $cookieStore) {
+    var ProjectService = function($http, $cookies) {
         var config = {
             headers: {
                 'content-type' : 'application/json',
-                'Authorization' : 'Token ' + $cookieStore.get('token')
+                'Authorization' : 'Token ' + $cookies.get('token')
             }
         }
 
@@ -31,7 +31,7 @@
                 ,
                 headers: {
                     'content-type': 'application/json',
-                    'Authorization': 'Token ' + $cookieStore.get('token')
+                    'Authorization': 'Token ' + $cookies.get('token')
                 }
             }).then(
                 function(response){
@@ -42,7 +42,7 @@
                 });
         }
 
-        //3 get the single project
+        //3 get a single project
         var getProject = function(pk)
         {
            return $http.get("http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/"+ pk +"/", config)
@@ -66,7 +66,7 @@
                 ,
                 headers: {
                     'content-type': 'application/json',
-                    'Authorization': 'Token ' + $cookieStore.get('token')
+                    'Authorization': 'Token ' + $cookies.get('token')
                 }
             }).then(
                 function(response){
@@ -86,7 +86,7 @@
                 url: 'http://projectservice.staging.tangentmicroservices.com:80/api/v1/projects/' + pk +'/',
                 headers: {
                     'content-type': 'application/json',
-                    'Authorization': 'Token ' + $cookieStore.get('token')
+                    'Authorization': 'Token ' + $cookies.get('token')
                 }
             }).then(
                 function(response){
@@ -110,5 +110,5 @@
     //get the angular module
     var module = angular.module('angularappApp');
     //register the service with angular
-    module.factory('project', project);
+    module.factory('ProjectService', ProjectService);
 }());
