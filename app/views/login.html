@@ -2,7 +2,6 @@
     <div class="col-md-6 col-xs-12">
         <h1>Login</h1>
         <div class="alert alert-danger" ng-show="error">{{error}}</div>
-        Username {{ credentials.username }} Password {{ credentials.password }}
         <form class="form-horizontal" ng-submit="getToken()">
             <div class="form-group has-feedback">
                 <input type="text"  name="username" ng-model="credentials.username"  class="form-control  input-sm"
