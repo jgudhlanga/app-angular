@@ -7,6 +7,12 @@
  * Controller of the angularappApp
  */
 angular.module('angularappApp')
-    .controller('GlobalCtrl', function ($scope, AppAuth, $cookies)  {
+    .controller('GlobalCtrl', function ($scope, AppAuth, $cookies, $route)  {
         $scope.token = $cookies.get('token');
+
+        $scope.logout = function()
+        {
+            AppAuth.logout();
+            $route.reload();
+        }
     });
