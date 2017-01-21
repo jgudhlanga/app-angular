@@ -20,7 +20,7 @@ angular.module('angularappApp', [
   ])
   .config(function ($routeProvider) {
     $routeProvider
-        .when('/project', {
+        .when('/main', {
             templateUrl: 'views/project.html',
             controller: 'ProjectCtrl',
             controllerAs: 'project'
@@ -29,11 +29,6 @@ angular.module('angularappApp', [
             templateUrl: 'views/editproject.html',
             controller: 'ProjectCtrl',
             controllerAs: 'editproject'
-        })
-        .when('/main', {
-            templateUrl: 'views/main.html',
-            controller: 'MainCtrl',
-            controllerAs: 'main'
         })
         .when('/about', {
             templateUrl: 'views/about.html',
@@ -45,7 +40,12 @@ angular.module('angularappApp', [
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
+        .when('/logout', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
       .otherwise({
-        redirectTo: '/project'
+        redirectTo: '/logout'
       });
   });
