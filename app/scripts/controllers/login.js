@@ -23,6 +23,5 @@ angular.module('angularappApp')
                 else
                     $scope.error = 'You credentials are not correct';
             }, 800, true);
-
         }
     });
