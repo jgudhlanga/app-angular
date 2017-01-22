@@ -35,7 +35,7 @@
 
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="end_date" ng-model="project.end_date"
-                       id="end_date" placeholder="Start Date" value="{{project.end_date}}"/>
+                       id="end_date" placeholder="End Date" value="{{project.end_date}}"/>
             </div>
         </div>
         <div class="form-group">
@@ -53,14 +53,14 @@
             <div class="col-sm-10">
                 <select name="is_active" id="is_active" ng-model="project.is_active">
                     <option value=""></option>
-                    <option value="true">true</option>
+                    <option value="true" ng-if="">true</option>
                     <option value="false">false</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="col-md-12 text-center">
-        <a href="#/project" class="btn btn-default" >
+        <a href="/project" class="btn btn-default" >
             Cancel
         </a>
         <button type="submit" class="btn btn-primary">
