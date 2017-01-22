@@ -30,6 +30,11 @@ angular.module('angularappApp', [
             controller: 'ProjectCtrl',
             controllerAs: 'project'
         })
+        .when('/addproject', {
+            templateUrl: 'views/addproject.html',
+            controller: 'ProjectCtrl',
+            controllerAs: 'project'
+        })
         .when('/projecttask/:pk', {
             templateUrl: 'views/projecttask.html',
             controller: 'ProjectCtrl',
