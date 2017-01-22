@@ -22,9 +22,15 @@ body {
   padding-right: 15px;
 }
 
+/* customising the nav bar*/
+.navbar, .navbar-default{
+  background-color: #f0f0f0;
+}
+
+
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+  //border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 
   /* Make the masthead heading the same height as the navigation */
@@ -38,6 +44,7 @@ body {
 
 /* Custom page footer */
 .footer {
+  margin-top: 100px;
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
@@ -57,7 +64,9 @@ body {
     padding: 14px 24px;
   }
 }
-
+ #ng-view{
+  width: 100% !important;
+}
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
