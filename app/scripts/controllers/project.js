@@ -31,6 +31,14 @@ angular.module('angularappApp')
         }
 
         //get the project to edit only if the routeParam pk is set
+        $scope.options = [{
+            value: true,
+            label: 'true'
+        }, {
+            value: false,
+            label: 'false'
+        }];
+
         if ($routeParams.pk) {
             var OnComplete = function(data) {
                 $scope.project = data;
