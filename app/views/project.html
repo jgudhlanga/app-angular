@@ -1,4 +1,13 @@
 <div class="row">
+    <div class="col-md-12 text-right">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add_project">
+            <i class="glyphicon glyphicon-plus"></i>
+            Add Project
+        </button>
+    </div>
+</div>
+        <br/>
+<div class="row">
     <div class="col-md-12">
         <div class="alert alert-danger" ng-show="error"> {{ error }}</div>
         <div class="panel panel-primary">
@@ -22,7 +31,7 @@
                         <tbody>
                         <tr ng-repeat="project in projects">
                             <td></td>
-                            <td><a href="#/projecttask/{{project.pk}}">{{ project.title }}</a></td>
+                            <td><a href="/projecttask/{{project.pk}}">{{ project.title }}</a></td>
                             <td>{{ project.description }}</td>
                             <td>{{ project.start_date }}</td>
                             <td>{{ project.end_date }}</td>
@@ -35,7 +44,7 @@
                                 <i class="glyphicon glyphicon-ban-circle text-danger" ng-show="!project.is_active"></i>
                             </td>
                             <td>
-                                <a class="btn btn-success btn-xs" href="#/editproject/{{project.pk}}">
+                                <a class="btn btn-success btn-xs" href="/editproject/{{project.pk}}">
                                     <i class="glyphicon glyphicon-pencil"></i>
                                     Edit
                                 </a>
@@ -51,10 +60,7 @@
                 </div>
             </div>
             <div class="panel-footer text-right">
-                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add_project">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    Add Project
-                </button>
+               &nbsp;
             </div>
         </div>
     </div>
