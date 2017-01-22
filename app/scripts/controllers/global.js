@@ -12,6 +12,6 @@ angular.module('angularappApp')
         $scope.logout = function()
         {
             AppAuth.logout();
-            $location.path("/");
+            $location.path("/login");
         }
     });
