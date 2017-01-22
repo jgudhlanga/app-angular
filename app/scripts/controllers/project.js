@@ -23,7 +23,6 @@ angular.module('angularappApp')
         $scope.projects = ProjectService.listProjects().then(OnRequestComplete);
 
         //initialise the post data object
-        var curPage = $route.current.templateUrl;//for reloading the current template
         $scope.projectData = { };
         $scope.postProject = function()
         {
@@ -34,11 +33,6 @@ angular.module('angularappApp')
         }
 
         //get the project to edit only if the routeParam pk is set
-        $scope.options = [{
-            value: 1,label: 'true'
-        }, {
-            value: 0,label: 'false'
-        }];
 
         if ($routeParams.pk) {
             var OnComplete = function(data) {
