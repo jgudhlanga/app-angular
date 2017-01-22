@@ -8,12 +8,21 @@
  * Controller of the angularappApp
  */
 angular.module('angularappApp')
-    .controller('LoginCtrl', function ($scope,  AppAuth, $location)  {
+    .controller('LoginCtrl', function ($scope,  AppAuth, $location, $window, $timeout, $cookies)  {
 
         $scope.credentials = {}; // user login credentials initialise
         $scope.getToken = function()
         {
             AppAuth.login($scope.credentials);
-            $location.path("/project")
+            $timeout(function(){
+                if($cookies.get('token'))
+                {
+                    $location.path("/");
+                    $window.location.reload();
+                }
+                else
+                    $scope.error = 'You credentials are not correct';
+            }, 800, true);
+
         }
     });
