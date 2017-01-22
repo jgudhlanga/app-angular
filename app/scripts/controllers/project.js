@@ -7,9 +7,8 @@
  * Controller of the angularappApp
  */
 angular.module('angularappApp')
-    .controller('ProjectCtrl', function ($scope, ProjectService, $cookies, $location, $routeParams )  {
+    .controller('ProjectCtrl', function ($scope, ProjectService, $cookies, $location, $routeParams, $route, $templateCache )  {
 
-        // function to capture errors
         var config = {
             headers: {
                 'content-type' : 'application/json',
@@ -19,24 +18,26 @@ angular.module('angularappApp')
         var OnRequestComplete = function(data) {
             $scope.projects = data;
         }
-         $scope.projects = ProjectService.listProjects().then(OnRequestComplete);
-        //Save a project here
+
+        //get all the projects
+        $scope.projects = ProjectService.listProjects().then(OnRequestComplete);
+
         //initialise the post data object
+        var curPage = $route.current.templateUrl;//for reloading the current template
         $scope.projectData = { };
         $scope.postProject = function()
         {
             ProjectService.postProject($scope.projectData);
-            //redirect to projects list
-            $location.path("#/project");
+            //add the newly added project to the projects
+            $scope.projects.push($scope.projectData);
+            $location.path("/project");
         }
 
         //get the project to edit only if the routeParam pk is set
         $scope.options = [{
-            value: true,
-            label: 'true'
+            value: 1,label: 'true'
         }, {
-            value: false,
-            label: 'false'
+            value: 0,label: 'false'
         }];
 
         if ($routeParams.pk) {
@@ -45,19 +46,27 @@ angular.module('angularappApp')
             }
             var pk = $routeParams.pk;
             $scope.project = ProjectService.getProject(pk).then(OnComplete);
-       }
+        }
 
         $scope.updateProject = function()
         {
             ProjectService.updateProject($scope.project);
             //redirect to the projects page
-            $location.path("#/project");
+            $location.path("/project");
         }
 
-        $scope.deleteProject = function(pk)
+        $scope.deleteProject = function(id)
         {
-            ProjectService.deleteProject(pk);
+            //remove the deleted from the project list
+            for(var i = 0; i < $scope.projects.length; i++) {
+                if($scope.projects[i].pk == id) {
+                    $scope.projects.splice(i, 1);
+                    break;
+                }
+            }
+            ProjectService.deleteProject(id);
+
             //redirect to the projects page
-            $location.path("#/project");
+            $location.path("/project");
         }
     });
