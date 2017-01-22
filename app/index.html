@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+    <base href="/">
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -14,7 +15,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body ng-app="angularappApp">
+<body ng-app="angularappApp" ng-controller="GlobalCtrl">
 <!--[if lte IE 8]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -31,29 +32,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Angular-App</a>
+                <a class="navbar-brand" href="/">Angular-App </a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-home text-info"></i>&nbsp;Home
+                        <a href="/">
+                            <i class="glyphicon glyphicon-home"></i>&nbsp;Home
                         </a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <i class="glyphicon glyphicon-user text-success"></i>&nbsp;
+                            <i class="glyphicon glyphicon-user"></i>&nbsp;
                             <span ng-show="token">Your login token is {{ token }}</span>
                             <span ng-hide="token">Log in </span>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li ng-hide="token"><a href="#">Log In</a></li>
-                            <li ng-show="token"><a href="#">Log Out</a></li>
+                            <li ng-hide="token"><a ng-href="/login">Log In</a></li>
+                            <li ng-show="token"><a ng-click="logout()">Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -63,26 +63,14 @@
 </div>
 
 <div class="container">
-    <div ng-view=""></div>
+    <div ng-view></div>
 </div>
 
 <div class="footer">
     <div class="container">
-        <p>&copy; 2017: All rights Reserved James Gudhlanga</p>
+        <p>&copy; 2017: All rights Reserved James Gudhlanga </p>
     </div>
 </div>
-
-
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-<script>
-    !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-            r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-    }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
-</script>
 
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
@@ -102,8 +90,12 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/services/auth.js"></script>
+<script src="scripts/services/project.js"></script>
+<script src="scripts/controllers/global.js"></script>
 <script src="scripts/controllers/main.js"></script>
-<script src="scripts/controllers/about.js"></script>
+<script src="scripts/controllers/login.js"></script>
+<script src="scripts/controllers/project.js"></script>
 <!-- endbuild -->
 </body>
 </html>
