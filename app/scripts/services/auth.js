@@ -7,6 +7,7 @@
             return $http.post("http://userservice.staging.tangentmicroservices.com/api-token-auth/", credentials)
                 .then(function (response) {
                     $cookies.put('token', response.data.token);
+                    return response.data.token;
                 }, function (message) {
                     return message
                 });
