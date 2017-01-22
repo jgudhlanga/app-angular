@@ -8,7 +8,7 @@
  * Controller of the angularappApp
  */
 angular.module('angularappApp')
-  .controller('MainCtrl', function ($scope, $cookieStore) {
+  .controller('MainCtrl', function ($scope) {
 
-        $scope.token = $cookieStore.get('token');
   });
+

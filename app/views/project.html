@@ -1,61 +1,67 @@
 <div class="row">
-    <div class="col-md-12">
-        <div class="col-md-9">
-            <h4>Project List</h4>
-        </div>
-        <div class="col-md-3">
-            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#add_project">
-                <i class="glyphicon glyphicon-plus"></i>
-                Add Project
-            </button>
-        </div>
+    <div class="col-md-12 text-right">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add_project">
+            <i class="glyphicon glyphicon-plus"></i>
+            Add Project
+        </button>
     </div>
+</div>
+        <br/>
+<div class="row">
     <div class="col-md-12">
         <div class="alert alert-danger" ng-show="error"> {{ error }}</div>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Is Billable</th>
-                    <th>Is Active</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="project in projects">
-                    <td></td>
-                    <td><a href="#/projecttask/{{project.pk}}">{{ project.title }}</a></td>
-                    <td>{{ project.description }}</td>
-                    <td>{{ project.start_date }}</td>
-                    <td>{{ project.end_date }}</td>
-                    <td class="text-center">
-                        <i class="glyphicon glyphicon-check text-success" ng-show="project.is_billable"></i>
-                        <i class="glyphicon glyphicon-ban-circle text-danger" ng-show="!project.is_billable"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="glyphicon glyphicon-check text-success" ng-show="project.is_active"></i>
-                        <i class="glyphicon glyphicon-ban-circle text-danger" ng-show="!project.is_active"></i>
-                    </td>
-                    <td>
-                        <a class="btn btn-success btn-xs" href="#/editproject/{{project.pk}}">
-                            <i class="glyphicon glyphicon-pencil"></i>
-                            Edit
-                        </a>
-                    <td>
-                        <button class="btn btn-danger btn-xs" ng-click="deleteProject(project.pk)">
-                            <i class="glyphicon glyphicon-trash"></i>
-                            Delete
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h4>Project List</h4></div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Start</th>
+                            <th>End</th>
+                            <th>Billable</th>
+                            <th>Active</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="project in projects">
+                            <td></td>
+                            <td><a href="/projecttask/{{project.pk}}">{{ project.title }}</a></td>
+                            <td>{{ project.description }}</td>
+                            <td>{{ project.start_date }}</td>
+                            <td>{{ project.end_date }}</td>
+                            <td class="text-center">
+                                <i class="glyphicon glyphicon-check text-success" ng-show="project.is_billable"></i>
+                                <i class="glyphicon glyphicon-ban-circle text-danger" ng-show="!project.is_billable"></i>
+                            </td>
+                            <td class="text-center">
+                                <i class="glyphicon glyphicon-check text-success" ng-show="project.is_active"></i>
+                                <i class="glyphicon glyphicon-ban-circle text-danger" ng-show="!project.is_active"></i>
+                            </td>
+                            <td>
+                                <a class="btn btn-success btn-xs" href="/editproject/{{project.pk}}">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                    Edit
+                                </a>
+                            <td>
+                                <button class="btn btn-danger btn-xs" ng-click="deleteProject(project.pk)">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer text-right">
+               &nbsp;
+            </div>
         </div>
     </div>
 </div>
