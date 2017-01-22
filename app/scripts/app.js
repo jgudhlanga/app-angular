@@ -18,9 +18,9 @@ angular.module('angularappApp', [
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
-        .when('/main', {
+        .when('/', {
             templateUrl: 'views/main.html',
             controller: 'MainCtrl',
             controllerAs: 'main'
@@ -30,7 +30,12 @@ angular.module('angularappApp', [
             controller: 'ProjectCtrl',
             controllerAs: 'project'
         })
-        .when('/editproject', {
+        .when('/projecttask/:pk', {
+            templateUrl: 'views/projecttask.html',
+            controller: 'ProjectCtrl',
+            controllerAs: 'project'
+        })
+        .when('/editproject/:pk', {
             templateUrl: 'views/editproject.html',
             controller: 'ProjectCtrl',
             controllerAs: 'editproject'
@@ -41,6 +46,8 @@ angular.module('angularappApp', [
         controllerAs: 'login'
       })
       .otherwise({
-        redirectTo: '/project'
+        redirectTo: '/'
       });
+
+      $locationProvider.html5Mode(true);
   });

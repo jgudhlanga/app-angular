@@ -8,12 +8,12 @@
  * Controller of the angularappApp
  */
 angular.module('angularappApp')
-    .controller('LoginCtrl', function ($scope,  AppAuth, $location, $route)  {
+    .controller('LoginCtrl', function ($scope,  AppAuth, $location)  {
 
         $scope.credentials = {}; // user login credentials initialise
         $scope.getToken = function()
         {
             AppAuth.login($scope.credentials);
-            $location.path("#/project")
+            $location.path("/project")
         }
     });
