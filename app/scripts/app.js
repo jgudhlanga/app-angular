@@ -18,7 +18,7 @@ angular.module('angularappApp', [
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider, $locationProvider, $compileProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
@@ -53,6 +53,6 @@ angular.module('angularappApp', [
       .otherwise({
         redirectTo: '/'
       });
-
+      $compileProvider.debugInfoEnabled(false);
       $locationProvider.html5Mode(true);
   });
