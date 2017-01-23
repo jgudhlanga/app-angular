@@ -22,6 +22,14 @@ body {
   padding-right: 15px;
 }
 
+.main-container{
+  width: 100%;
+  margin: 0 auto;
+  .view-container{
+    width: 96%;
+    margin: 0 auto;
+  }
+}
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
