@@ -13,7 +13,15 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 body {
   padding: 0;
 }
-
+.main-container{
+  width: 100%;
+  margin: 0 auto;
+  .view-container{
+    width: 96%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
