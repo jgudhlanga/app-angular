@@ -15,7 +15,7 @@ version 0.15.1.<br/>
   $ yo --version</br/>
   
 ## Let Yeoman scaffold the angular app
-    cd to the project folder 
+    cd to the project folder and run the command below
     $ yo angular
 
 ## Build & development
