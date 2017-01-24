@@ -14,7 +14,7 @@ version 0.15.1.<br/>
   Confirm installation<br/>
   $ yo --version</br/>
   
-## Let Yo scaffold the angular app
+## Let Yeoman scaffold the angular app
     cd to the project folder<br/>
     $ yo angular
 
