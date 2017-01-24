@@ -15,14 +15,8 @@ angular.module('angularappApp')
         {
             AppAuth.login($scope.credentials);
             $timeout(function(){
-                if($cookies.get('token'))
-                {
-                    $location.path("/");
-                    $window.location.reload();
-                }
-                else
-                    $scope.error = 'You credentials are not correct';
-            }, 800, true);
-
+                $location.path("/");
+                $window.location.reload();
+            }, 1500, true);
         }
     });
