@@ -8,17 +8,11 @@
    
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.<br/>
-##Install the Yeoman toolset and the required generators for this project
-  Once you’ve got Node installed, install the Yeoman toolset:<br/>
-  $ npm install -g grunt-cli bower yo generator-karma generator-angular yo<br/>
-  Confirm installation<br/>
-  $ yo --version</br/>
-  
-## Let Yeoman scaffold the angular app
-    cd to the project folder and run the command below
-    $ yo angular
 
 ## Build & development
+Clone this project to your local folder<br/>
+cd to the folder and Run npm install to install / update the dependencies<br/>
+ $ npm install
 
 Run `grunt` for building and `grunt serve` for preview.
 
