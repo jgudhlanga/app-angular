@@ -53,7 +53,6 @@ angular.module('angularappApp', [
       .otherwise({
         redirectTo: '/'
       });
-
       $compileProvider.debugInfoEnabled(false);
       $locationProvider.html5Mode(true);
   });
