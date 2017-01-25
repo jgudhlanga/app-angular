@@ -28,22 +28,22 @@ angular.module('angularappApp', [
         .when('/project', {
             templateUrl: 'views/project.html',
             controller: 'ProjectCtrl',
-            controllerAs: 'project'
+            controllerAs: 'ProjectCtrl'
         })
-        .when('/addproject', {
-            templateUrl: 'views/addproject.html',
+        .when('/addeditproject', {
+            templateUrl: 'views/addeditproject.html',
             controller: 'ProjectCtrl',
-            controllerAs: 'project'
+            controllerAs: 'ProjectCtrl'
         })
         .when('/projecttask/:pk', {
             templateUrl: 'views/projecttask.html',
             controller: 'ProjectCtrl',
-            controllerAs: 'project'
+            controllerAs: 'ProjectCtrl'
         })
-        .when('/editproject/:pk', {
-            templateUrl: 'views/editproject.html',
+        .when('/addeditproject/:pk', {
+            templateUrl: 'views/addeditproject.html',
             controller: 'ProjectCtrl',
-            controllerAs: 'editproject'
+            controllerAs: 'ProjectCtrl'
         })
         .when('/login', {
         templateUrl: 'views/login.html',
