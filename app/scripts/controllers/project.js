@@ -46,7 +46,7 @@ angular.module('angularappApp')
         else
         {
             $scope.header = 'Create New Project';
-            $scope.button = 'Save Project;
+            $scope.button = 'Save Project';
 
             $scope.postProject = function()
             {
