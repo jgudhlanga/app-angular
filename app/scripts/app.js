@@ -30,8 +30,13 @@ angular.module('angularappApp', [
             controller: 'ProjectCtrl',
             controllerAs: 'project'
         })
-        .when('/addproject', {
-            templateUrl: 'views/addproject.html',
+        .when('/addeditproject', {
+            templateUrl: 'views/addeditproject.html',
+            controller: 'ProjectCtrl',
+            controllerAs: 'project'
+        })
+                .when('/addeditproject/:pk', {
+            templateUrl: 'views/addeditproject.html',
             controller: 'ProjectCtrl',
             controllerAs: 'project'
         })
@@ -39,11 +44,6 @@ angular.module('angularappApp', [
             templateUrl: 'views/projecttask.html',
             controller: 'ProjectCtrl',
             controllerAs: 'project'
-        })
-        .when('/editproject/:pk', {
-            templateUrl: 'views/editproject.html',
-            controller: 'ProjectCtrl',
-            controllerAs: 'editproject'
         })
         .when('/login', {
         templateUrl: 'views/login.html',
