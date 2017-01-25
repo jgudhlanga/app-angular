@@ -25,7 +25,6 @@ angular.module('angularappApp')
         //initialise the post data object
         $scope.projectData = { };
         //modal specific variables
-         $scope.header = 'Create New Project';
         
         //get the project to edit only if the routeParam pk is set
 
@@ -34,6 +33,7 @@ angular.module('angularappApp')
                 $scope.projectData = data;
             }
             $scope.header = 'Edit Project';
+             $scope.button = 'Update Project';
             var pk = $routeParams.pk;
             $scope.projectData = ProjectService.getProject(pk).then(OnComplete); 
             $scope.postProject = function()
@@ -45,6 +45,9 @@ angular.module('angularappApp')
         }
         else
         {
+            $scope.header = 'Create New Project';
+            $scope.button = 'Save Project;
+
             $scope.postProject = function()
             {
                 ProjectService.postProject($scope.projectData);
